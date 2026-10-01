@@ -1276,15 +1276,14 @@
 
     </div>
 
-    <!-- APPLY BUTTON -->
+   <!-- APPLY BUTTON -->
     <button class="apply-btn" onclick="applyNow()">APPLY NOW</button>
     <button class="cart-fab" id="cartFab" onclick="viewCart()">🛒 CART <span class="cart-count" id="cartCount">0</span></button>
 
-   <script>
+    <script>
     function applyNow() {
         window.location.href = "apply.html";
     }
-
     // ==================================================
     // EVERY PHONE AVAILABLE IN STOCK — unique description per phone
     // ==================================================
@@ -1770,29 +1769,54 @@
     // ==================================================
     // CART
     // ==================================================
-    var cartItems = [];
+   // ==================================================
+// CART — stores full phone info, opens cart.html
+// ==================================================
+function getCart() {
+    return JSON.parse(localStorage.getItem("zpCart") || "[]");
+}
 
-    function addToCart(btn) {
-        var name = btn.getAttribute("data-phone");
-        cartItems.push(name);
-        var fab = document.getElementById("cartFab");
-        document.getElementById("cartCount").textContent = cartItems.length;
-        fab.classList.remove("pop");
-        void fab.offsetWidth; // restart animation
-        fab.classList.add("pop");
-        btn.textContent = "✔ ADDED";
-        btn.classList.add("added");
-        setTimeout(function() {
-            btn.textContent = "🛒 ADD TO CART";
-            btn.classList.remove("added");
-        }, 1200);
-    }
+function addToCart(btn) {
+    var name = btn.getAttribute("data-phone");
+    var p = phones.find(function(ph) { return ph.name === name; });
+    if (!p) return;
 
-    function viewCart() {
-        alert(cartItems.length ?
-            "Your cart:\n\n• " + cartItems.join("\n• ") + "\n\nCall/WhatsApp us to complete your order!" :
-            "Your cart is empty — tap ADD TO CART on any phone!");
-    }
+    var cart = getCart();
+    cart.push({
+        name: p.name,
+        desc: p.desc,
+        deposit: p.deposit,
+        monthly: p.monthly,
+        total: p.total,
+        image: p.images[0]
+    });
+    localStorage.setItem("zpCart", JSON.stringify(cart));
+
+    // update counter
+    var fab = document.getElementById("cartFab");
+    var count = cart.length;
+    document.getElementById("cartCount").textContent = count;
+    fab.classList.remove("pop");
+    void fab.offsetWidth;
+    fab.classList.add("pop");
+
+    btn.textContent = "✔ ADDED";
+    btn.classList.add("added");
+    setTimeout(function() {
+        btn.textContent = "🛒 ADD TO CART";
+        btn.classList.remove("added");
+    }, 1200);
+}
+
+function viewCart() {
+    window.location.href = "cart.html";   // go to cart + delivery page
+}
+
+// show correct count on page load (cart persists between visits)
+(function initCartCount() {
+    var c = document.getElementById("cartCount");
+    if (c) c.textContent = getCart().length;
+})();
 
     // ==================================================
     // TOUCH SUPPORT — tap a card to start/stop the slide
