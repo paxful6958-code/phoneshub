@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zimbabwe Pride - Cart & Delivery</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:Arial, Helvetica, sans-serif; background:linear-gradient(135deg,#e8ede8 0%,#f5f2e8 50%,#e8e8f0 100%); color:#111; padding:15px; }
+    .wrap { max-width:930px; margin:auto; background:#fff; border-radius:18px; box-shadow:0 15px 50px rgba(0,0,0,.25); overflow:hidden; }
+    .top { background:#111; color:#fff; text-align:center; padding:16px; font-size:26px; font-weight:1000; font-style:italic; }
+    .top span { color:#f0c400; }
+    .section-title { margin:15px 25px 10px; background:#08751e; color:#fff; text-align:center; font-size:20px; font-weight:1000; font-style:italic; padding:8px; border-radius:8px; }
+    .cart-list { padding:0 25px; }
+    .cart-item { display:flex; gap:12px; align-items:center; border:2px solid #08751e; border-radius:12px; padding:10px; margin-bottom:10px; }
+    .cart-item img { width:70px; height:70px; object-fit:contain; border-radius:8px; background:#fff; }
+    .ci-name { font-weight:1000; font-size:16px; color:#08751e; }
+    .ci-desc { font-size:12px; color:#444; margin:3px 0; }
+    .ci-price { font-size:12px; font-weight:900; }
+    .remove-btn { margin-left:auto; background:#c40000; color:#fff; border:none; border-radius:6px; padding:8px 10px; font-weight:900; cursor:pointer; }
+    .cart-total { margin:10px 25px; text-align:right; font-weight:1000; font-size:18px; }
+    form { padding:0 25px 25px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    label { font-weight:900; font-size:13px; display:block; margin-bottom:4px; }
+    input, textarea, select { width:100%; padding:10px; border:2px solid #08751e; border-radius:8px; font-size:15px; }
+    .full { grid-column:1 / -1; }
+    .submit-btn { margin-top:15px; width:100%; padding:14px; border:none; border-radius:10px; background:linear-gradient(135deg,#08751e,#0a9a26); color:#fff; font-size:19px; font-weight:1000; cursor:pointer; }
+    .submit-btn:hover { transform:scale(1.01); }
+    .empty { text-align:center; padding:30px; font-weight:900; color:#c40000; }
+    @media(max-width:600px){ .form-grid{grid-template-columns:1fr;} .top{font-size:20px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="top">🛒 YOUR CART & <span>DELIVERY DETAILS</span></div>
+
+    <div class="section-title">PHONES IN YOUR CART</div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-total" id="cartTotal"></div>
+
+    <div class="section-title">DELIVERY INFORMATION</div>
+
+    <form id="orderForm">
+        <div class="form-grid">
+            <div><label>Full Name *</label><input type="text" id="fullName" required></div>
+            <div><label>Phone Number *</label><input type="tel" id="phone" required></div>
+            <div class="full"><label>ID Number (National ID / Passport) *</label><input type="text" id="idNumber" required></div>
+            <div><label>City / Town *</label><input type="text" id="city" required></div>
+            <div><label>Suburb / Area</label><input type="text" id="suburb"></div>
+            <div class="full"><label>Full Delivery Address *</label><textarea id="address" rows="2" required></textarea></div>
+            <div><label>Preferred Delivery Day</label><input type="date" id="deliveryDate"></div>
+            <div><label>Employment Status</label>
+                <select id="employment">
+                    <option>Employed</option><option>Self-Employed</option>
+                    <option>Business Owner</option><option>Unemployed</option>
+                </select>
+            </div>
+            <div class="full"><label>Additional Notes</label><textarea id="notes" rows="2"></textarea></div>
+        </div>
+        <button type="submit" class="submit-btn">✅ SUBMIT ORDER</button>
+    </form>
+</div>
+
+<script>
+    var cart = JSON.parse(localStorage.getItem("zpCart") || "[]");
+
+    function renderCart() {
+        var list = document.getElementById("cartList");
+        if (!cart.length) {
+            list.innerHTML = '<div class="empty">Your cart is empty. <a href="index.html">Go back and pick a phone!</a></div>';
+            document.getElementById("cartTotal").textContent = "";
+            return;
+        }
+        list.innerHTML = cart.map(function(p, i) {
+            return '<div class="cart-item">' +
+                '<img src="' + p.image + '" alt="' + p.name + '">' +
+                '<div>' +
+                '<div class="ci-name">' + p.name + '</div>' +
+                '<div class="ci-desc">' + p.desc + '</div>' +
+                '<div class="ci-price">Deposit ' + p.deposit + ' • ' + p.monthly + '/month • ' + p.total + '</div>' +
+                '</div>' +
+                '<button class="remove-btn" onclick="removeItem(' + i + ')">✕ REMOVE</button>' +
+                '</div>';
+        }).join("");
+    }
+
+    function removeItem(i) {
+        cart.splice(i, 1);
+        localStorage.setItem("zpCart", JSON.stringify(cart));
+        renderCart();
+    }
+
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        if (!cart.length) { alert("Your cart is empty!"); return; }
+
+        var order = {
+            customer: {
+                name: document.getElementById("fullName").value,
+                phone: document.getElementById("phone").value,
+                idNumber: document.getElementById("idNumber").value,
+                city: document.getElementById("city").value,
+                suburb: document.getElementById("suburb").value,
+                address: document.getElementById("address").value,
+                deliveryDate: document.getElementById("deliveryDate").value,
+                employment: document.getElementById("employment").value,
+                notes: document.getElementById("notes").value
+            },
+            items: cart,
+            date: new Date().toLocaleString()
+        };
+
+        // Save the complete order
+        var orders = JSON.parse(localStorage.getItem("zpOrders") || "[]");
+        orders.push(order);
+        localStorage.setItem("zpOrders", JSON.stringify(orders));
+
+        // Build a WhatsApp message with phone info + delivery details
+        var msg = "NEW ORDER — ZIMBABWE PRIDE%0A%0A";
+        order.items.forEach(function(p, i) {
+            msg += "PHONE " + (i + 1) + ": " + p.name + "%0A";
+            msg += "Deposit: " + p.deposit + " | Monthly: " + p.monthly + " | " + p.total + "%0A";
+            msg += "Specs: " + p.desc + "%0A%0A";
+        });
+        msg += "DELIVERY INFO:%0A";
+        msg += "Name: " + order.customer.name + "%0A";
+        msg += "Phone: " + order.customer.phone + "%0A";
+        msg += "ID: " + order.customer.idNumber + "%0A";
+        msg += "Address: " + order.customer.address + ", " + order.customer.city + (order.customer.suburb ? ", " + order.customer.suburb : "") + "%0A";
+        msg += "Delivery date: " + (order.customer.deliveryDate || "ASAP") + "%0A";
+        msg += "Employment: " + order.customer.employment + "%0A";
+        if (order.customer.notes) msg += "Notes: " + order.customer.notes;
+
+        // Send via WhatsApp (change the number to your sales line)
+        window.location.href = "https://wa.me/263771234567?text=" + msg;
+
+        // Clear the cart
+        localStorage.removeItem("zpCart");
+    });
+
+    renderCart();
+</script>
+</body>
+</html>
