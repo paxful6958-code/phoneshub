@@ -1,1 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zimbabwe Pride - Smartphones on Credit</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #e8ede8 0%, #f5f2e8 50%, #e8e8f0 100%);
+            background-attachment: fixed;
+            color: #111;
+        }
+        
+        .poster {
+            width: 100%;
+            max-width: 930px;
+            margin: 15px auto;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, .25);
+            border-radius: 18px;
+        }
+        /* =========================
+           HEADER
+        ========================= */
+        
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px 5px;
+            gap: 25px;
+            background: linear-gradient(135deg, #f7fdf7 0%, #fdf5f5 100%);
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, #08751e, #f0c400, #d00000) 1;
+            border-radius: 18px 18px 0 0;
+        }
+        
+        .flag {
+            width: 48%;
+            max-width: 470px;
+        }
+        
+        .flag svg {
+            width: 100%;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .25));
+            border-radius: 10px;
+        }
+        
+        .header-title {
+            flex: 1;
+            text-align: center;
+            font-weight: 900;
+            font-style: italic;
+            line-height: 1;
+        }
+        
+        .header-title .green {
+            color: #08751e;
+            font-size: clamp(25px, 4vw, 48px);
+        }
+        
+        .header-title .red {
+            color: #d00000;
+            font-size: clamp(30px, 5vw, 55px);
+            margin-top: 5px;
+        }
+        /* Decorative stripes — animated shimmer */
+        
+        .stripes {
+            height: 35px;
+            margin: 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stripes::before {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 6px;
+            background: #08751e;
+            right: 0;
+            top: 5px;
+            transform: skewX(-30deg);
+            animation: stripeSlide 3s ease-in-out infinite alternate;
+        }
+        
+        .stripes::after {
+            content: "";
+            position: absolute;
+            width: 70%;
+            height: 5px;
+            background: #d00000;
+            right: 0;
+            top: 17px;
+            transform: skewX(-30deg);
+            animation: stripeSlide 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes stripeSlide {
+            from {
+                transform: skewX(-30deg) translateX(0);
+            }
+            to {
+                transform: skewX(-30deg) translateX(-40px);
+            }
+        }
+        /* =========================
+           MAIN HEADING
+        ========================= */
+        
+        .offer {
+            text-align: center;
+            padding: 5px 20px 0;
+        }
+        
+        .offer-small {
+            font-size: 25px;
+            font-weight: 900;
+            font-style: italic;
+        }
+        
+        .offer-small::before,
+        .offer-small::after {
+            content: "━";
+            margin: 0 15px;
+            color: #d6a800;
+        }
+        
+        .main-title {
+            margin-top: 3px;
+            color: #d00000;
+            font-size: clamp(45px, 8vw, 82px);
+            font-weight: 1000;
+            font-style: italic;
+            letter-spacing: -3px;
+            text-shadow: 2px 2px 0 #222, 4px 4px 0 #fff, 0 0 25px rgba(208, 0, 0, .35);
+        }
+        
+        .loan-title {
+            display: inline-block;
+            background: #08751e;
+            color: white;
+            padding: 5px 40px;
+            font-size: clamp(35px, 6vw, 65px);
+            font-weight: 1000;
+            font-style: italic;
+            transform: skewX(-8deg);
+            box-shadow: 0 8px 25px rgba(8, 117, 30, .45);
+            letter-spacing: 1px;
+        }
+        
+        .slogan {
+            margin-top: 7px;
+            font-size: clamp(17px, 3vw, 25px);
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .slogan::before,
+        .slogan::after {
+            content: "★";
+            color: #d00000;
+            margin: 0 10px;
+        }
+        /* =========================
+           LOAN OPTIONS
+        ========================= */
+        
+        .loan-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 10px 30px 5px;
+        }
+        
+        .loan-card {
+            border: 3px solid #08751e;
+            border-radius: 14px;
+            overflow: hidden;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        
+        .loan-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+        }
+        
+        .loan-card.red {
+            border-color: #c40000;
+        }
+        
+        .loan-card.blue {
+            border-color: #174ca4;
+        }
+        
+        .loan-card.orange {
+            border-color: #e07000;
+        }
+        
+        .card-heading {
+            color: white;
+            padding: 8px;
+            font-size: clamp(25px, 4vw, 42px);
+            font-weight: 900;
+            font-style: italic;
+            border-radius: 10px;
+            margin: -1px -1px 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, .4);
+            letter-spacing: 1px;
+        }
+        
+        .green-heading {
+            background: #08751e;
+        }
+        
+        .red-heading {
+            background: #c40000;
+        }
+        
+        .blue-heading {
+            background: #174ca4;
+        }
+        
+        .orange-heading {
+            background: #e07000;
+        }
+        
+        .deposit-label,
+        .installment-label {
+            font-weight: 900;
+            font-size: 18px;
+        }
+        
+        .deposit {
+            font-size: clamp(34px, 5vw, 50px);
+            font-weight: 1000;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+        }
+        
+        .green-text {
+            color: #08751e;
+        }
+        
+        .red-text {
+            color: #c40000;
+        }
+        
+        .blue-text {
+            color: #174ca4;
+        }
+        
+        .orange-text {
+            color: #e07000;
+        }
+        
+        .percent {
+            display: inline-flex;
+            width: 50px;
+            height: 50px;
+            background: #d00000;
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            vertical-align: middle;
+            margin-left: 5px;
+            box-shadow: 0 4px 10px rgba(208, 0, 0, .4);
+            transition: transform .3s ease;
+        }
+        
+        .loan-card:hover .percent {
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        .divider {
+            border-top: 2px dashed #aaa;
+            margin: 10px 15px;
+        }
+        
+        .monthly {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 1000;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+        }
+        
+        .period {
+            color: white;
+            margin: 5px 15px 12px;
+            padding: 5px;
+            font-size: 18px;
+            font-weight: 900;
+        }
+        
+        .green-period {
+            background: #08751e;
+        }
+        
+        .red-period {
+            background: #c40000;
+        }
+        
+        .blue-period {
+            background: #174ca4;
+        }
+        
+        .orange-period {
+            background: #e07000;
+        }
+        /* =========================
+           SECTION TITLE BAR
+        ========================= */
+        
+        .section-title {
+            margin: 8px 30px;
+            background: #111;
+            color: white;
+            text-align: center;
+            font-size: clamp(23px, 4vw, 40px);
+            font-weight: 1000;
+            font-style: italic;
+            padding: 7px;
+            position: relative;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+            letter-spacing: 2px;
+            overflow: hidden;
+        }
+        
+        .section-title::before,
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 65px;
+            background: linear-gradient(60deg, #111 25%, #d00000 26%, #d00000 45%, #f0c400 46%, #f0c400 65%, #08751e 66%, #08751e 80%, #111 81%);
+            filter: brightness(1.2);
+        }
+        
+        .section-title::before {
+            left: 0;
+        }
+        
+        .section-title::after {
+            right: 0;
+        }
+        /* =========================
+           INSTALLMENT ROWS
+        ========================= */
+        
+        .installments {
+            padding: 0 30px;
+        }
+        
+        .installment-row {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
+            align-items: center;
+            border: 2px solid #08751e;
+            border-radius: 13px;
+            margin-bottom: 7px;
+            min-height: 48px;
+            overflow: hidden;
+            font-weight: 900;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .07);
+            background: linear-gradient(90deg, #fff 0%, #fafcf9 100%);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        
+        .installment-row:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+        }
+        
+        .installment-row.red-row {
+            border-color: #c40000;
+        }
+        
+        .installment-row.blue-row {
+            border-color: #174ca4;
+        }
+        
+        .installment-row.orange-row {
+            border-color: #e07000;
+        }
+        
+        .phone-mini {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 12px;
+        }
+        
+        .mini-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: rgba(255, 255, 255, .6);
+            transition: transform .3s ease, background .3s ease;
+        }
+        
+        .installment-row:hover .mini-circle {
+            transform: scale(1.2) rotate(10deg);
+            background: rgba(240, 196, 0, .3);
+        }
+        
+        .row-value {
+            text-align: center;
+        }
+        
+        .row-label {
+            display: block;
+            font-size: 12px;
+        }
+        
+        .row-money {
+            font-size: 23px;
+        }
+        
+        .row-period {
+            background: #08751e;
+            color: white;
+            text-align: center;
+            padding: 10px 5px;
+            font-size: 18px;
+        }
+        
+        .red-row .row-period {
+            background: #c40000;
+        }
+        
+        .blue-row .row-period {
+            background: #174ca4;
+        }
+        
+        .orange-row .row-period {
+            background: #e07000;
+        }
+        
+        .row-month {
+            font-size: 25px;
+            text-align: center;
+        }
+        /* =========================
+           PHONES — 4-IMAGE AUTO-SLIDERS
+        ========================= */
+        
+        .phones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 5px 30px;
+        }
+        
+        .phone-card {
+            border: 2px solid #08751e;
+            border-radius: 12px;
+            text-align: center;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+            transition: transform .35s cubic-bezier(.2, .8, .3, 1.2), box-shadow .35s ease;
+            position: relative;
+        }
+        
+        .phone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(8, 117, 30, .35);
+        }
+        
+        .phone-card.red-phone {
+            border-color: #c40000;
+        }
+        
+        .phone-card.red-phone:hover {
+            box-shadow: 0 18px 40px rgba(196, 0, 0, .35);
+        }
+        
+        .phone-card.blue-phone {
+            border-color: #174ca4;
+        }
+        
+        .phone-card.blue-phone:hover {
+            box-shadow: 0 18px 40px rgba(23, 76, 164, .35);
+        }
+        
+        .phone-card.green-phone {
+            border-color: #08751e;
+        }
+        /* ---- The slider ---- */
+        
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: #fff;
+        }
+        
+        .slider-track {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            animation: slideLeft 14s linear infinite;
+            animation-play-state: paused;
+            will-change: transform;
+        }
+        
+        .phone-card:hover .slider-track,
+        .phone-card.touched .slider-track {
+            animation-play-state: running;
+        }
+        
+        @keyframes slideLeft {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-400%);
+            }
+        }
+        
+        .slider-track img {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            object-fit: contain;
+            display: block;
+            padding: 5px;
+            background: #fff;
+        }
+        
+        .brand-label {
+            display: inline-block;
+            color: white;
+            padding: 5px 30px;
+            margin: 0 0 8px;
+            border-radius: 4px;
+            font-size: 22px;
+            font-weight: 1000;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+            letter-spacing: .5px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, .35);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        
+        .phone-card:hover .brand-label {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, .35);
+        }
+        
+        .green-brand {
+            background: #08751e;
+        }
+        
+        .red-brand {
+            background: #c40000;
+        }
+        
+        .blue-brand {
+            background: #174ca4;
+        }
+        
+        .orange-brand {
+            background: #e07000;
+        }
+        
+        .phone-models .phone-card {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .phone-models .brand-label {
+            margin: 0 6px 7px;
+            font-size: 16px;
+            padding: 6px 8px;
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .phone-display {
+            min-height: 70px;
+            padding: 8px 10px 12px;
+            font-size: 13px;
+            line-height: 1.35;
+            font-weight: 700;
+            color: #333;
+        }
+        /* =========================
+           NEW — PRICE TAG + STOCK TAG
+        ========================= */
+        
+        .stock-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            z-index: 5;
+            background: #08751e;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, .35);
+        }
+        
+        .months-tag {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 5;
+            background: #f0c400;
+            color: #111;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, .35);
+        }
+        
+        .price-tag {
+            margin: 0 8px 8px;
+            border: 2px dashed #08751e;
+            border-radius: 10px;
+            padding: 6px 4px;
+            background: #fbfff8;
+        }
+        
+        .price-tag .pt-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #444;
+            padding: 2px 6px;
+        }
+        
+        .price-tag .pt-row strong {
+            font-size: 16px;
+            font-weight: 1000;
+        }
+        
+        .price-tag .green-strong {
+            color: #08751e;
+        }
+        
+        .price-tag .red-strong {
+            color: #c40000;
+        }
+        
+        .price-tag .blue-strong {
+            color: #174ca4;
+        }
+        
+        .price-tag .orange-strong {
+            color: #e07000;
+        }
+        
+        .red-phone .price-tag {
+            border-color: #c40000;
+            background: #fff8f8;
+        }
+        
+        .blue-phone .price-tag {
+            border-color: #174ca4;
+            background: #f6f9ff;
+        }
+        
+        .price-total {
+            font-size: 11px;
+            font-weight: 900;
+            color: #666;
+            text-align: center;
+            padding-top: 3px;
+            border-top: 1px dashed #bbb;
+            margin-top: 3px;
+        }
+        /* =========================
+           NEW — STOCK & CONTACT NUMBERS STRIP
+        ========================= */
+        
+        .stock-strip {
+            margin: 5px 30px;
+            background: linear-gradient(135deg, #08751e 0%, #0a9a26 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 12px 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(8, 117, 30, .35);
+        }
+        
+        .stock-strip h3 {
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: 1000;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        
+        .stock-strip p {
+            font-size: clamp(14px, 2.5vw, 18px);
+            font-weight: 700;
+            line-height: 1.6;
+        }
+        
+        .stock-strip a {
+            color: #ffe14d;
+            text-decoration: none;
+            font-weight: 1000;
+        }
+        
+        .stock-strip a:hover {
+            text-decoration: underline;
+        }
+        /* =========================
+           FEATURED IMAGE
+        ========================= */
+        
+        .featured-section {
+            padding: 5px 30px 10px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .featured-frame {
+            width: 100%;
+            max-width: 860px;
+            border: 3px solid #08751e;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            animation: breathe 4s ease-in-out infinite;
+            transition: transform .4s ease;
+        }
+        
+        @keyframes breathe {
+            0%,
+            100% {
+                box-shadow: 0 5px 18px rgba(0, 0, 0, .2);
+            }
+            50% {
+                box-shadow: 0 5px 30px rgba(8, 117, 30, .45);
+            }
+        }
+        
+        .featured-frame:hover {
+            transform: scale(1.015);
+        }
+        
+        .featured-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        /* =========================
+           FEATURES
+        ========================= */
+        
+        .features {
+            margin: 5px 30px;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 10px 5px;
+            border-right: 1px solid #777;
+            transition: background .3s ease;
+        }
+        
+        .feature:hover {
+            background: rgba(255, 255, 255, .07);
+        }
+        
+        .feature:last-child {
+            border-right: none;
+        }
+        
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            margin: auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+            transition: transform .3s ease;
+        }
+        
+        .feature:hover .feature-icon {
+            transform: scale(1.25) rotate(-8deg);
+        }
+        
+        .feature:nth-child(1) .feature-icon {
+            background: #08751e;
+        }
+        
+        .feature:nth-child(2) .feature-icon {
+            background: #d00000;
+        }
+        
+        .feature:nth-child(3) .feature-icon {
+            background: #f0c400;
+        }
+        
+        .feature:nth-child(4) .feature-icon {
+            background: #08751e;
+        }
+        
+        .feature h3 {
+            font-size: 16px;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+        
+        .feature p {
+            font-size: 12px;
+        }
+        /* =========================
+           BOTTOM CTA — shine sweep
+        ========================= */
+        
+        .cta {
+            position: relative;
+            background: #f2c500;
+            margin: 5px 30px 15px;
+            text-align: center;
+            padding: 8px 20px;
+            clip-path: polygon(3% 0, 97% 0, 100% 50%, 97% 100%, 3% 100%, 0 50%);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(242, 197, 0, .4);
+            transition: transform .3s ease;
+        }
+        
+        .cta:hover {
+            transform: scale(1.02);
+        }
+        
+        .cta::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -80%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, .55) 50%, transparent 100%);
+            transform: rotate(15deg);
+            animation: shine 3.5s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -80%;
+            }
+            60%,
+            100% {
+                left: 130%;
+            }
+        }
+        
+        .cta-main {
+            font-size: clamp(24px, 5vw, 42px);
+            font-weight: 1000;
+            font-style: italic;
+        }
+        
+        .cta-main span {
+            color: #c40000;
+        }
+        
+        .approved {
+            display: inline-block;
+            background: #c40000;
+            color: white;
+            padding: 5px 18px;
+            transform: rotate(-5deg);
+            font-size: 20px;
+            font-weight: 1000;
+            margin-left: 10px;
+        }
+        /* =========================
+           BUTTON — floating pulse
+        ========================= */
+        
+        .apply-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border: none;
+            background: linear-gradient(135deg, #0a9a26 0%, #08751e 60%, #065c16 100%);
+            color: white;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            z-index: 100;
+            transition: transform .25s ease, box-shadow .25s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                box-shadow: 0 5px 20px rgba(0, 0, 0, .3), 0 0 0 0 rgba(8, 117, 30, .5);
+            }
+            50% {
+                box-shadow: 0 5px 25px rgba(0, 0, 0, .35), 0 0 0 12px rgba(8, 117, 30, 0);
+            }
+        }
+        
+        .apply-btn:hover {
+            transform: scale(1.1);
+            animation-play-state: paused;
+            box-shadow: 0 10px 35px rgba(8, 117, 30, .5);
+        }
+        /* =========================
+           SCROLL-REVEAL ENTRANCE
+        ========================= */
+        
+        .loan-card,
+        .installment-row,
+        .phone-card,
+        .feature {
+            animation: fadeUp .7s ease both;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        
+        @media (max-width: 700px) {
+            .header {
+                flex-direction: column;
+                gap: 5px;
+                padding: 10px;
+            }
+            .flag {
+                width: 90%;
+            }
+            .header-title {
+                width: 100%;
+            }
+            .loan-options {
+                grid-template-columns: 1fr;
+                padding: 10px 15px;
+                gap: 12px;
+            }
+            .loan-card {
+                max-width: 400px;
+                width: 100%;
+                margin: auto;
+            }
+            .installments {
+                padding: 0 15px;
+            }
+            .installment-row {
+                grid-template-columns: 1fr 1fr;
+                padding: 5px;
+            }
+            .phone-mini {
+                grid-column: span 2;
+                justify-content: center;
+                padding: 3px;
+            }
+            .row-period {
+                border-radius: 5px;
+            }
+            .phones {
+                grid-template-columns: 1fr;
+                padding: 5px 15px;
+            }
+            .slider {
+                height: 230px;
+            }
+            .phone-display {
+                font-size: 14px;
+                min-height: auto;
+            }
+            .featured-section {
+                padding: 5px 15px 10px;
+            }
+            .features {
+                grid-template-columns: 2fr 2fr;
+                margin: 5px 15px;
+            }
+            .feature {
+                border-bottom: 1px solid #777;
+            }
+            .section-title {
+                margin: 8px 15px;
+            }
+            .cta {
+                margin: 5px 15px 15px;
+            }
+            .stock-strip {
+                margin: 5px 15px;
+            }
+        }
+        /* =========================
+           ACCESSIBILITY
+        ========================= */
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+        /* =========================
+   CART BUTTON + COUNTER
+========================= */
+.add-cart-btn {
+    display: block;
+    width: calc(100% - 16px);
+    margin: 0 8px 10px;
+    padding: 9px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #08751e, #0a9a26);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(8, 117, 30, .35);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.add-cart-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(8, 117, 30, .5);
+}
+.add-cart-btn.added {
+    background: linear-gradient(135deg, #c40000, #e03000);
+}
+.red-phone .add-cart-btn   { background: linear-gradient(135deg, #c40000, #e03000); }
+.blue-phone .add-cart-btn  { background: linear-gradient(135deg, #174ca4, #2a6ad4); }
+.orange-phone .add-cart-btn{ background: linear-gradient(135deg, #e07000, #f08a20); }
+.add-cart-btn.added { background: #111 !important; }
+
+.cart-fab {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 100;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 22px;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+}
+.cart-fab .cart-count {
+    background: #c40000;
+    border-radius: 50%;
+    padding: 2px 9px;
+    margin-left: 6px;
+}
+.cart-fab.pop { animation: cartPop .35s ease; }
+@keyframes cartPop { 50% { transform: scale(1.25); } }
+    </style>
+</head>
+
+<body>
+
+    <div class="poster">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="flag">
+                <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="500" height="300" fill="#006400"/>
+                    <path d="M0 50H500V100H0Z" fill="#FFD200"/>
+                    <path d="M0 100H500V150H0Z" fill="#D40000"/>
+                    <path d="M0 150H500V200H0Z" fill="#000"/>
+                    <path d="M0 200H500V250H0Z" fill="#D40000"/>
+                    <path d="M0 250H500V300H0Z" fill="#FFD200"/>
+                    <polygon points="0,0 0,300 210,150" fill="white"/>
+                    <polygon points="0,45 32,150 0,255" fill="#D40000"/>
+                    <polygon points="32,80 50,135 108,135 61,168 78,225 32,190 -14,225 3,168 -44,135 14,135" fill="#D40000"/>
+                    <circle cx="32" cy="150" r="18" fill="#FFD200"/>
+                    <path d="M32 105 L43 145 L70 150 L45 160 L38 195 L25 165 L5 150 L25 140Z" fill="#8B5A00"/>
+                </svg>
+            </div>
+
+            <div class="header-title">
+                <div class="green">ZIMBABWE PRIDE,</div>
+                <div class="red">YOUR NETWORK!</div>
+            </div>
+        </header>
+
+        <div class="stripes"></div>
+
+        <!-- OFFER -->
+        <section class="offer">
+            <div class="offer-small">WE OFFER</div>
+            <div class="main-title">IPHONES, REDMI &</div>
+            <div class="main-title">SAMSUNG</div>
+            <div class="loan-title">PHONES ON CREDIT</div>
+            <div class="slogan">DEPOSIT TODAY, PAY EASY!</div>
+        </section>
+
+        <!-- LOAN CARDS -->
+        <section class="loan-options">
+
+            <div class="loan-card">
+                <div class="card-heading green-heading">IPHONE</div>
+                <div class="deposit-label">MINIMUM DEPOSIT</div>
+                <div class="deposit green-text">$100 <span class="percent">25%</span></div>
+                <div class="divider"></div>
+                <div class="installment-label">INSTALLMENTS</div>
+                <div class="monthly green-text">$40</div>
+                <div class="period green-period">FOR 12 MONTHS</div>
+            </div>
+
+            <div class="loan-card red">
+                <div class="card-heading red-heading">SAMSUNG</div>
+                <div class="deposit-label">MINIMUM DEPOSIT</div>
+                <div class="deposit red-text">$60</div>
+                <div class="divider"></div>
+                <div class="installment-label">INSTALLMENTS</div>
+                <div class="monthly red-text">$30</div>
+                <div class="period red-period">FOR 12 MONTHS</div>
+            </div>
+
+            <div class="loan-card blue">
+                <div class="card-heading blue-heading">REDMI</div>
+                <div class="deposit-label">MINIMUM DEPOSIT</div>
+                <div class="deposit blue-text">$40</div>
+                <div class="divider"></div>
+                <div class="installment-label">INSTALLMENTS</div>
+                <div class="monthly blue-text">$20</div>
+                <div class="period blue-period">FOR 12 MONTHS</div>
+            </div>
+
+            <div class="loan-card orange">
+                <div class="card-heading orange-heading">IPHONE PRO</div>
+                <div class="deposit-label">MINIMUM DEPOSIT</div>
+                <div class="deposit orange-text">$200</div>
+                <div class="divider"></div>
+                <div class="installment-label">INSTALLMENTS</div>
+                <div class="monthly orange-text">$60</div>
+                <div class="period orange-period">FOR 12 MONTHS</div>
+            </div>
+
+            <div class="loan-card">
+                <div class="card-heading green-heading">SAMSUNG ULTRA</div>
+                <div class="deposit-label">MINIMUM DEPOSIT</div>
+                <div class="deposit green-text">$150</div>
+                <div class="divider"></div>
+                <div class="installment-label">INSTALLMENTS</div>
+                <div class="monthly green-text">$50</div>
+                <div class="period green-period">FOR 12 MONTHS</div>
+            </div>
+
+        </section>
+
+        <!-- ALL PHONE MODELS IN STOCK — each card gets a stock tag, 12-months tag and a price tag -->
+        <div class="section-title">IPHONES ,REDMI & SAMSUNG MODELS</div>
+
+        <section class="phones phone-models" id="phoneGrid">
+            <!-- Phone cards are generated by the script below from the `phones` array.
+                 To add every phone in stock, just add a line to that array —
+                 slider, tags and price tag are all created automatically. -->
+        </section>
+
+        <!-- STOCK & CONTACT NUMBERS -->
+        <div class="stock-strip" id="stockStrip">
+            <h3>ALL PHONES AVAILABLE IN STOCK — CALL / WHATSAPP US NOW!</h3>
+            <p>
+                📞 <a href="tel:+263771234567">+263 77 123 4567</a> &nbsp;|&nbsp; 📞 <a href="tel:+263782345678">+263 78 234 5678</a> &nbsp;|&nbsp; 📞 <a href="tel:+263719456789">+263 71 945 6789</a><br> 💬 WhatsApp: <a href="https://wa.me/263771234567"
+                    target="_blank">+263 77 123 4567</a>
+            </p>
+        </div>
+
+        <!-- FEATURED IMAGE -->
+        <div class="section-title">FEATURED</div>
+
+        <section class="featured-section">
+            <div class="featured-frame">
+                <a href="https://curiousmatrix.com/wp-content/uploads/2025/02/Smartphones-1024x585.jpg" target="_blank">
+                    <img src="https://curiousmatrix.com/wp-content/uploads/2025/02/Smartphones-1024x585.jpg" alt="Featured Image">
+                </a>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">🤝</div>
+                <h3>EASY TERMS</h3>
+                <p>Flexible repayment options</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⏱</div>
+                <h3>QUICK APPROVAL</h3>
+                <p>Get approved in no time</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>GENUINE PHONES</h3>
+                <p>Sealed, brand new and warrantied</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <h3>CALL TODAY</h3>
+                <p>Pay easy, use it today</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="cta-main">
+                YOUR DREAM PHONE
+                <span>IS JUST A LOAN AWAY!</span>
+                <span class="approved">APPROVED<br>APPLY NOW</span>
+            </div>
+        </section>
+
+    </div>
+
+   <!-- APPLY BUTTON -->
+    <button class="apply-btn" onclick="applyNow()">APPLY NOW</button>
+    <button class="cart-fab" id="cartFab" onclick="viewCart()">🛒 CART <span class="cart-count" id="cartCount">0</span></button>
+
+    <script>
+    function applyNow() {
+        window.location.href = "apply.html";
+    }
+    // ==================================================
+    // EVERY PHONE AVAILABLE IN STOCK — unique description per phone
+    // ==================================================
+    var phones = [{
+        name: "IPHONE 17 PRO MAX",
+        theme: "green",
+        deposit: "$100",
+        monthly: "$40",
+        total: "$580 total",
+        desc: "6.9-inch Super Retina XDR OLED, ProMotion 120Hz, A19 Pro chip, 48MP Fusion cameras.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCDauwy8fq3JRLdFMu5P3iaoczsyOiK-uAKhM3QWN2Ng&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMepLL17t_SunVvMyVklwXbS4sGfvayH9kzN9THQ3p2Q&s=10",
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT9lXEeKth265BWoQheXf5miYpe1R1z8G-n8Bo8xXDGo2VEitvzfRMgWSFLttj8kbqv4BuUxan8R3XvR_LiZQzdXRZm9g4R2U22Iw6KsFgyiw4S3lY62PzWcwg9FYryPpLblGTeeQ&usqp=CAc",
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRH-zWBTZpA4YMDegtA8juLs6qIHzWjYYg1XHIgFZZZELXa3s5XK6xie_Jr03xcdz08JBkjRl3ergy-CD92Y3eZM2PhBhv7Bsq4CjLzHNTQONjWAiPz7cXCMJU3Yf0nSbZQX8Q8lPs&usqp=CAc"
+        ]
+    }, {
+        name: "IPHONE 17 PRO",
+        theme: "orange",
+        deposit: "$200",
+        monthly: "$60",
+        total: "$920 total",
+        desc: "6.3-inch ProMotion display, A19 Pro chip, titanium body, 48MP Pro camera system.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTrb9P8CpdP6QKh82hBMUTtUdeFujV6d_e6Uu9XuYnyCuUIRMeG1iOVTUoaE6bsi48Q_ZnW777M5LeKOEKL5qmj9DTxXomi9SJYM5v1Hzz4MAsEXLem4pRTZ3nGkWp-jefkOAZ58JZ-w&usqp=CAc",
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQGyKk-4d01NxQGphhy5Dj-eFUuwMxv8fKIKsXv0dBxznEKD-3wBy5K3Cue5LbwcntUb6aXBg9YDhtsRBWNAYLU0Gevi-2vVnbVN1xTU4T-zeDJmeECq8TUQg&usqp=CAc",
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTTuiHUY-CtHydFfJm5nOKuPbaadAlhpcVwznRvNOAPX9NJJZ9vQHZJgo1Qv9j9-Rf6f8R2p7gP56hU5Tx4ilczgbJHh-ytN2Iw4l0FDoNHS4m59PiN5vdCNCDNQGtDsA&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2zIaMHPPkvr56I7ufbG6W_-FkNQ87BdDWRPuhc3C5Bw&s=10"
+        ]
+    }, {
+        name: "IPHONE 17",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "6.3-inch Super Retina XDR, A19 chip, 48MP Dual Fusion camera, all-day battery.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu987DbnBzhBCu4zGLb3ngBsZ_-GuxIFk9Ou4iqaKUYg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQnaBD19LOMXaYHJrNFu0AFWQnmwcV4P4HNy7YJZh-eA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQjLKCdxQcQOdo8jpbvlWEd8_sWmDVzoHmmRUVKukLqg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbWYkgCYOUjUswCS1YX2V94Dw8GGowSVcq3ui2-CKltg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-baLOMJ82jx90tDwJSWSFBTxAfqRCC7THZiIlqbFGGg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcmdHnCK5eT2fMtBwjvtQWxJW-PbWZAlsot3TpedUCaA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0tvUFuUb4c3g4YtLM35ePt6wpKCMIBQJEeB0NJwhnbQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqicxUP17hjXeTjCpmak3QHIjOpHDMlm-ThXZ1AGHwVg&s=10"
+        ]
+    }, {
+        name: "IPHONE AIR",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "Ultra-thin 5.6mm titanium design, 6.5-inch display, A19 Pro, all-day battery life.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo_lBRJfgQYMhWnJMnt0qgZjDe-qgK4Tr7QifmYFtbvg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2NfcpMc6kMVFMxfEJduoAnWbDIbxq0NkdgxmfzaZNXw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHzHdMwT-ExhXg__Fk2-WrtfPNDNbEtcdexEOUvWySdg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbdgaYF4Lx7cMnTN1HP5zUU-JOuL70_GADmIujl214Pw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNnwoH5hp8MAyT6CmLibNJph3UJLrDnxoJrLccDYBXXg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIfzM4-KIiR0QhNJGGHyuBNuz1u9ZpJolpE33GtbnoCw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaiodh_OHeaqPW-HBQ_jzknW4YTuQwMsktLW7NLwfiQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStoOoj9L4gvFEHdbnL86VmB81vA_hI_ioB2rpEZQJuXg&s"
+        ]
+    }, {
+        name: "IPHONE 17E",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "Compact 6.1-inch iPhone, A18 chip, 48MP single camera, Face ID — best value iPhone.",
+        images: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ4tCfpN3gXgehokQ__qNwtQ1JDaUTxZqd2NEft0Akq704x6s0v6UA-cdTfbUhA2gHzzhm97IzRgP3VckP3Z2r4O-kTxi6IYnkTF_TTkInU&usqp=CAc",
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRo5uguNTHlkYC5S5Rv-1BFsJb6YGoQYNJ-8fruAzwEgQ37ah1pbBqTaFQjzqiA4eDeWkomTXlk0sb6AdO08qXRlGuJ4wrAPyO7ByC49OIjA5QohKWUq2epwzdyHVWPDENaz0i-Aw&usqp=CAc",
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ-y7OW2No3m8DPAtEhsO4H9ciW3utGljI8l84qERcq5QVb2vIYgxmOS9qEqb4finfvva5HNgbx0JeF_26uxguBbwx8Sc1lJiKm8fcBh74SO8gUSPU7O2yJtWSc3aIGX9ZfHm1ndQ&usqp=CAc",
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTtnl84NEBiUHsVwvs5Gc5xq1KlI7expsfaaqNpvfiRQVQHMe8fHBWyDrq_FmYgvh5DXgivh1Wf2Ax_qxV7UMvvj6aQ4R05o1iCGCIgDscbbZvpeS7FB_nZ-2xMI9Qm3rpJV2tf7tRHMyI&usqp=CAc",
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRTzD7PzRNtjcu1XgDBA7xCVSanKKe1aTlvOOukwt3Uyf5Kwyu1-lfBv8d-pWelhZ7UkijrVtUQsx2FknJwBd1ldWYCG5RntuPbB-ahK9crB-SfiZ0vuirQcTK-876yL7ZXmEQjTbo&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNOMVr_0IvcKglV7JNdFGkYFvR4ZcFUmp-f8M9Jlrdg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTaDZltX8RGE2z0jVOCUbUNY-c7E6K2MElXCeEV4cYUw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvHc7ywMk0sQodLwqNmxEgCB_j_PB5ZMDEp3jGoY-RuA&s=10"
+        ]
+    }, {
+        name: "IPHONE 16 PRO MAX",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "6.9-inch display, A18 Pro chip, 48MP camera with 5x telephoto, Camera Control button.",
+        images: [
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQtPwwNQYylNSCG9FEO2rLcAynJlsT0valj-aYPf1xII37Qs9jXY7lVa8IQYdJzwxNsBEwBegVktA_WI9z1daNCLF24X3dIzHXmDjZk6e7ulVMjYh7pYDQbyndPVsIdIXF4ClKQjewwDg&usqp=CAc",
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSBQ9Keaor_3fiz_MCsk10ptOluLf40PQ21lYBLZ2iclxrQIdJiLzEHoEVXWT6dKQAlTbiErYAtV8wcMr-RH-QwaxRokZcfEaCAcodzn5VMPsKaYoWl141lQurT-w&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCzwDujitkogL8HAnQObH9KwKvybg1hRmc6K2CX3W8DA&s=10",
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSHcnXUCVq3FnSXOLozbRY6Aejaj2tZoon4N64oxCY6w9p1dDUdL7RN2lJN_ZY9KDaaPwjpJhN8ydervJUIWEmFVXW2p9lYAna-OCORzBHQ_CsWoDGwFw7pr64rZZOqOcFsGaTrKg&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRKVkDyZScj7z-0q8eDey8e37ZGw5HrI3v2YlVH0Cu5SLl05iDzZ6X5HfwmSwQEiWut1ZTnvpiPuRUgbCFFQRvmrWuDeXC37dbx3o2S7djSyIykLrdK-kfCGe1CwadvrFpfQo0eHQ&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN34uzeitxVtkIhWxZZ5Gb5hiiCKFJ-khUx0AtK9FHqA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs0K0Nq6nqgPBqybR_VQEp0RKt9VWtsgfWz6C8dh6ZXw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLa93w645xRYXz66EQrwkQ8OwChEz9cl14LlCCcxlnww&s=10"
+        ]
+    }, {
+        name: "IPHONE 16 PRO",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "6.3-inch A18 Pro powerhouse, 4K 120fps Dolby Vision video, titanium frame.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs0K0Nq6nqgPBqybR_VQEp0RKt9VWtsgfWz6C8dh6ZXw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFXylDnU-19-1NcBMtzrHwbGNpQ1et0Zr2COd_Z56EwA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpJm2BrjZdsBdD2jxxI-3sV0dEPdC8LEFI1-1aajSptw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDB4a2OYx88nn819imjUK38hNLn17Zta_lm29xazv1qw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PqfLyYwwcgQ9Hcgj1YPDQJy1_y1KdaKOez5_Lf-KTg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqt80MiPrAt9LUBv0fKTbC4DUgJt0ZahmO_iCoqyFjNg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-lfMZPhkxY5h4nAqRGeHqqNVJK3D7PNWe04vfvXRAAA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-NGb_JXn6lc7-zEbxJdVhTZBHiV1W7I3PfyBpfLTTUg&s=10"
+        ]
+    }, {
+        name: "IPHONE 16 PLUS",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "Big 6.7-inch display with A18 power, huge battery life, 48MP Fusion camera.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtXqOEME_OKVywuQdxQ5emeSw_G2S11Nmx-G4JdGXP1g&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpIF3EGI1OYgD0daerjbdtb1wBOmwoSOVCZ_5H4i2JNg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQesvB0ifVBpB8aSPzdRYmgOFohM9Yp2dcuhSDehch2VA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCrM3rqFeqAPSW6Zgx-B1MMiQ1eIx6_aymmyThXv990w&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP9O4CYDeQ15szQChPauExdN1b-5FXM25OVCJOA8LuRg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPvccH83fgU6zQYQYRS0-H--srTUmZxepfbm0g0Sd4Tg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmzTbt3Rek39A4KySBg_j_gV-WKo4p6Gw_Xri6HdUhYw&s=10"
+        ]
+    }, {
+        name: "IPHONE 16",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "6.1-inch A18 iPhone with Camera Control, 48MP Fusion camera, vibrant colours.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkKjRYt-e7pAU2YtA_03nf7IxskHyDPq9h-WTHEk8Lbw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKARYu1_Ne9mCr4J5tslYefiY3F64-_e8rxCIo_ascqw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_Qb6l7oZbeSavgc3wzAkcWGvspdoVD_daFKYs9TOXfA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmc0xcfdpfOIKNp3Dm2XHgixD_Wa88DDbPP9Zu7CUcKQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYr2EhPpdJaTA1KJmPsGLu3XnSnluslSoZqc4gPM00tw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-dIt3kxmIZVO-lY0Ig7nVR-6InRABXbcHfyGQx-xRQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSira75Xv64m6WWyXmS1RYPaN7pc6RCZzColo_qyE-w&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsJnb6rymuzedgNwVOBreuolOlpEJ3MNUzqr_9TjSq_Q&s=10"
+        ]
+    }, {
+        name: "IPHONE 15",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "6.1-inch Dynamic Island, A16 chip, 48MP main camera, USB-C — great everyday iPhone.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCg6PAFlMLTsCgr5-dnlmHA_Y1xivzF15qHDritdCurg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqwh_mqvyxFCbxZ8Zgz8eRZEhuHggLfxEbxiiSxYsRlQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZDEkd5QqEAIVMcE46UqowckLVwAe3W5vZVfhGmOhtxg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ95Yn094zPjGcgVQRUZMrreeYLc3H3uZB3iL0BLT4Kg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJJB32VkdG3AZQemM1P5KaygLIbxPoV1RwpIGHwgyBAQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKpsT5FnOcWJkPGm8Wp4mvr79SM-cspD1vzJ0jw-2MQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOhv9tbil2zXT5pGqsqpU_TPAOZDTcIP67Wi0JJ_vTMg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7wYPSeVTQ6gOnAs4H9W0AdyHEk79S8IE0wPOut8pdww&s=10"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY S25 ULTRA",
+        theme: "green",
+        deposit: "$150",
+        monthly: "$50",
+        total: "$750 total",
+        desc: "6.9-inch QHD+ AMOLED 120Hz, Snapdragon 8 Elite, 200MP camera, built-in S Pen.",
+        images: [
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRoHXQSEtbobeNe_JTiDmkXyBJgpkx5jmmX7yYiaC2YAVTQfYvjn6sGulP0Wz4zhA1PvHLl-2BA5wG1KObQOb4jwZOitDGRo5ErkTgaqYfGa6lFsUxyiwJmTcbvzF8_dWzR5b8ESQ&usqp=CAc",
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSvWh2bm6wdw5ubSIFnukk4ZDbjwTSCSn3bfQjTzG6cO7KI-3OdDmpf31LNMg7p4bNLXpARd8YrJJRdvqmdEdA5hyfNa-omQ2Ro8nO-HH1vsxjN3K9JQbqjHDS3TLL-Tj_EHFBWUg&usqp=CAc",
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRvYaYgNWbBwCd6a-coU0iiSO8KMi8B3d0BMh2FWZfZHJNr0AXSOs5zN5MXdac4FfwjbUALx6Ua_i07M3dP2979-sdszVAbT7r6fTLZi6W_oJX34kscBRn0A_zA6ZnTbewvcby07CU&usqp=CAc",
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTj2sY042eaB0xT4ZSQBANBt55F7UHTtPz0VUAFCKzi-J1jPGLX48XrKhgDVbMaAXpqTVMuyapVMuGs--SN8H8gbLgUbScxgYkCPXdmHLs7GYUvD1WXgBLQaeR03NCoNIxMH8BUprA&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzcoq82I85zCS28gd7fb__5P3Xe_a1uawZVnXkvFVnug&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ8NGVkM_z-9yd_B1d4A74yP_GBRAG3eYTUDD7dHfvFA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUyP6WQHDrX5kyGVD6RKd_1RXXva3wq5pNtwxbp6HSuA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn4RY3WOrKMJu_QhRWD-_bhog6SX2z12850xLsl3oijA&s"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY S25+",
+        theme: "red",
+        deposit: "$60",
+        monthly: "$30",
+        total: "$420 total",
+        desc: "6.7-inch QHD+ 120Hz display, Snapdragon 8 Elite, 50MP triple camera, 4900mAh battery.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ50pHSjmT0VMb_fYUxaHn9kFT9x5KRiSTU1__SKNmhUg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJvJKVQp3i6gyqLoOKowZpmqPrpQDEsmYBIIO4HkPv3g&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwkWPjoc1ghR-Yx6xtL7XMTNWl0UfYgW5jnQnV_mjxxg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdoJ0MfP8_KcK7eJInT69pnw7gTFkKISS_kNW3lnQDYQ&s=10"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY S25",
+        theme: "red",
+        deposit: "$60",
+        monthly: "$30",
+        total: "$420 total",
+        desc: "Compact 6.2-inch flagship, Snapdragon 8 Elite, 50MP camera, Galaxy AI features.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2aW6MN-byPU012uHB03xBWXqio2G8H6ftddK5-G8sw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1TpxufPiHZpF1JTd65oTpwITRlCD4Gg4RpjAp6xlxRA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ5fuPhJfug1B25qFlki_RQrSgcVqtIibVNdCYCV014Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOcEzlTRDoSmBuqp1KEDoVDBRQaWJ5BQLNj0tbWrAY1Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx2OtloQcA81_GqQQbOSrigfa8v_Se1CIexYmnqhfHmQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT2COVYC10o_GYOEa6Mpor-L18fncV_690g_1Jix9sMCQTdGgFEwPNCAg&s=10"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY S25 EDGE",
+        theme: "red",
+        deposit: "$60",
+        monthly: "$30",
+        total: "$420 total",
+        desc: "Impossibly slim 5.8mm flagship, 6.7-inch 120Hz display, 200MP camera, titanium frame.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0DIi4RgFz3tkdIsTtgckOQJ6oFx0o42JuR11MZT7S_w&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS19fC_vgcfw80FvwC0_oZPz077zVvS2NjX_VNA5-MaIg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfq4tEjkjoFpW9uxXF44V3sM3ehzUHG4FI2FhxrgkyAQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSmxo25pkYb51SCEZF1x_UzzcX9Rz6rFv-p_gXQmTJ2A&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa0so4rhwtAxfEXkFJkW7jljK8z5OmIT-NtfZ6_KnQeA&s=10"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY S24 ULTRA",
+        theme: "red",
+        deposit: "$60",
+        monthly: "$30",
+        total: "$420 total",
+        desc: "6.8-inch QHD+ display, Snapdragon 8 Gen 3, 200MP camera with 100x zoom, S Pen.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOpbLpR-QiICQn2RE64ezNBlnAHpIhqQS_xcAdKDwVYQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVkQgQ2cWesQMPmdAsE5cGqfNPVdWPCbX28gCOTaINCQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmq9LxTwVHAepu6Mt12ixWIDw-7AuPLMWvMEDpaQ8vXA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST014mioKQYKVAwkRq3e0lfnlpKcMmygYbvhgfqdeu3Q&s=10"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY S24+",
+        theme: "red",
+        deposit: "$60",
+        monthly: "$30",
+        total: "$420 total",
+        desc: "6.7-inch QHD+ 120Hz, 50MP triple camera, 4900mAh battery, 7 years of updates.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_5qwb6ydkC1vQvlQbRfqh4aCvFultnLs2J6GBg7EjJg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq6GJi_VWnMGRpYTvzhL8rix1xr1dvzpkj9_NewTrQcw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8CK26mEFSA8E91Ddb786h2oahH2otnmKKULz-JsF0pg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8OVM-xfN9U9FS_ONXLLq5x5ilvD1gDFV_4kZhDHnw6A&s=10"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY S24",
+        theme: "red",
+        deposit: "$60",
+        monthly: "$30",
+        total: "$420 total",
+        desc: "6.2-inch compact flagship, Exynos 2400, 50MP camera, Galaxy AI photo editing.",
+        images: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQDxK10A892UQB24FAugpWxy2j8raifd_L28PntgbDJ_TCgLRnwymILwg70b00h6tqqu_Gm0_MjstY-2C9Cco3cndGwSEyqI-E_BY8Cy6eEVYZm5uM_fz0-IA&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0FgXYm72jjyvPEZT6DvTxm23EyEwmAQJ2SRpHBbJ1A&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFAnZMFutbFK5_SfPQ7Np-zEbOLH8hNMpUbWqBivdOA&s=10",
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSFik4znTMT7Za72TLwi8yr0QliG2Wjvp858UMk_TwKTlOBlXwSQiEnA60CuZVXFeAZ7WHhb2kd_7kcBqLmoAaUBJSgWKm0PJO1m9NyqeyJckbjkXxi_Fv0&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbC802AADyh8MIUUgZ4iFB2QOI4w9VWBZEj11aY1OfgA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfHj7tNc2X_sk23tDT9XItzEzFs6GJ_YfY0blHk_PH6Q&s=10"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY A56 5G",
+        theme: "red",
+        deposit: "$60",
+        monthly: "$30",
+        total: "$420 total",
+        desc: "6.7-inch Super AMOLED 120Hz, Exynos 1580, 50MP OIS camera, 5000mAh battery.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKUkzGFxVVgU9YvvSsxWulu63c_hTiFHJ7S36rGrV4wg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUdxRUXz4Wr_3s6sPuF3iEt-pd458XVohfQEKroPb08A&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRetM3snVWyyKKoPpWX-w1rpAyAV43_V8_qLF_0Aid-WA&s"
+        ]
+    }, {
+        name: "REDMI NOTE A36 5G",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.67-inch AMOLED 120Hz, 200MP OIS camera, 5500mAh fast-charging battery.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDvE2X-nuolrLAyGD8l8JdY3pxhJ6dYh4LyQZLUvaNw&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmRKcKpYidDN9sH-oqibIEbqdltKCXy96CFiXwJ6IUog&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGhvfbJDDHWdn6DuBZfRdVFpgI2VsrDVztUaIID2UaPQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrbj_5GrZsZlA_9cXx8rWPXHNzeaBZbF_rMgpUCNvyQA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnBCaV14MXhwupnAsMZdNUCkmURL4dBrY4v2AbWZbOEg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5K8nyrX8wpWCmALB9WfBiHCRw9ORlnm6qzqgZUYD_mg&s"
+        ]
+    }, {
+        name: "SAMSUNG GALAXY A26 5G",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.7-inch Super AMOLED 120Hz, 50MP OIS camera, 5000mAh battery, IP67 rated.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmLoALTKFn0wAIPAT5oNVkgPGbGPrBgFPUc4GKrH63dQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbNXaQcoJd_nu1sxafMgFixD75E99IXn8yaYu5BTnAbQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc4RwkxHO90Fs89JOVtPZYkzH4jXzxO4QtlxxJWJ3XlA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb6WiOWgh2r6d4-aqJoPfakEmKojnzkKHfddInHt7n2A&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIpgbFCyBycpaAGQv1zJIdMee-ZYBKpN595gFdGl9ewQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdyu7broT0Oe_qpQvFZ3pWblxC0cEaJot7P2rgsgrY8Q&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 15 PRO+",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.83-inch 1.5K AMOLED 120Hz, 200MP periscope camera, 7000mAh battery, IP69.",
+        images: [
+            "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR9p4Rh8do-IizStWNJF0AOQqBRF56PmrdfuTR3tZbkwp3-TAtHgQB94EojbhSiaM6aEJWMHQ31sNwebh8QCpgijdnVl1_NChhh5lKpx2lnnH04_Au7MZu01PpVzoPw83bYcSG0wA&usqp=CAc",
+            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT22Ow7hkhvEN6QSjHLD3FneOczwn3XYb0HaGIxcSK7qP-3YSpEsZt57EdJT4XS9xKUiirOOnpzeTHkuRdcns4g660ZyUJ2VnOFVL81uwwRKNFghr6_FkOiCMZC3XOzaoZN6ooj2Q&usqp=CAc",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOtQjJ50Wlkp1jXmz0CbW7qw9nKfK1M01TbMa7vYYJpQ&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 15 PRO 5G",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.83-inch 1.5K AMOLED, 50MP OIS main camera, 7000mAh battery, slim metal frame.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0fYgBJAhwsGZswAR9GfAwXlrjeSnFx1xtiBNXZ_9rNQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi8zJxpd13AvkMlnrCdFelS6eRdPsGNtxZao4sLVCUWA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKktFfSdbfeefkMvn2hi6EyJ-fHLcIeUuYXeWz02v_Qg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbR1WnSqhVAcE95ES_RnnaVrHdw3SxzmJ9yEhJajhp0Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUGw-7P65LragVwOoh743GNGirWLhoj0m0l_Yx_3ScMg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyc8cb4ZIZlgFgg7r33kyChMAJ-ua9HGPsnsTHn6zqlQ&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 15",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.79-inch 120Hz AMOLED, 108MP camera, 7000mAh marathon battery, 33W charging.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9cPIf-zm7AbNCBW6EKx8eKgvYjJyXr5y1l-BhwWJhLg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5F7jRl1WQU92596fWMplVnhOV1MNso3VeeXmUu2P4BA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMp0uyEBuszpEaiNBG5YOfBAWGHRrdIWpi_MOlQoYIw&s=10"
+        ]
+    }, {
+        name: "REDMI 15",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.9-inch 144Hz display, massive 7000mAh battery, 50MP AI camera — 2-day phone.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6UKoeRIM7zO1DrxUMQn-BRxBp-mmonR9G969jHotGyA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-SpyYhWt6PFJcqeK4g5jNe__kovT6j-pOdautV_O3Ww&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGiedPatoXTfGDIVoge18KCpIxgC3ZNkfY4RCCjUrkJg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNkdDMEklvowZtPPh42AG7L30wckFyA08crZNd41k93w&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyDg3udSiqKoNQ3VxH29n57Ystvcb4Dym5R9OizzbQMw&s=10"
+        ]
+    }, {
+        name: "REDMI 15C",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "Budget hero: 6.9-inch 120Hz display, 6000mAh battery, 50MP camera, IP64 splash-proof.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs77rvn-vCUTCVNjzqVFlVkseuhAVJfHvVeaWTvytHvQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IkHhAVVfoHunXc3Yaa5_rqlSpl3KIxt95P8Hz8gobQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ_6M6Bf8bbMv0I4WbRZcrpwI1pBKvWB5zDkP-o206Qw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXhd9GgCzXf_dY0kd4WROXNvU6kmpGBPYJPbA41jZz0A&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBj9w59IrLbN5aw9JdATPDg2ryMoNUyaLa5W35SuzEUQ&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgdU0DuJhQGGDXexfEXVPEVC051coPCIp4DZWpM3l3Og&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 14 PRO+ 5G",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "200MP OIS flagship camera, 6.67-inch 1.5K AMOLED, 90W HyperCharge, IP68.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQldDFJVtcJ--XJX-QSPDVrPlzrAuKYNIS5nKOe53Rl2Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5uD8ldGH88Jr0H0p_Mhq9IuRKRDLoRObWMGNi9NG2og&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfbxEqeI3e4csgFotjOcP4_RTxHqD7KcvXmFvHMZSQtA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5VljkgZIZEsk2fTkoQzD7WYHCAmWP3R_h3iqnWlpVIA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5xDDnYInVIueVEL4lrL4SjuLoWTiT-kT-Edl70sTgDA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5tB0oU2IcckHCqiiEGEz6wm18zB5jWOqsUIaefw_7kg&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 14 PRO 5G",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.67-inch 1.5K AMOLED, 200MP main camera, 45W charging, premium curved design.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQLF56UWWQd78pfkIPDtfLg9JLoyn4HPkaHJHoM6jFzw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqS2YAJAqRcC6Aj9FqNqrbkKu_ZnpEOtbB_dYuc412Gg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzAkwNQOQAp95MbQ4RXcdi_uyB1WH0SkwucgvUHy61Ag&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRutrj9V84eJM0wu1TheaiJv2Wwt_BkU0cD6Or4HVrw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmF4nmVWbo2HsrqDmMFarW3XjWnoqq_FMw2shQpGO_xw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjnxIPPzRHFR5OMRNgiI6aUX_-i0ZuVFv0TOWXAXBnjQ&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 14 PRO",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.67-inch AMOLED 120Hz, 200MP camera, 5500mAh battery, IP68 dust & water resistance.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgTWjlKSy5umZnG2oeZR4MlIW2svcxkqQuzQIzaF8v8w&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzXVND_Bs-lb_fVCMR1IVjtBT4Rlhay6Onh5616X6R5Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOJ2RHa5gZdGKK8jhIeNJhelafqyEezUnwMDTWb8jjYg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR66JxtHA9OTjDhKXdez77THJF3d-XJGG2tjA6OQcundA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXimKfGt9tGsDjma-O85udcUx9IqZ1WP5skPMYzmGpfg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsvNrV0DyIIMdldO_IYDs5TZVXDa7XM4LnKBbjfj-Uw&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 14 5G",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.67-inch AMOLED 120Hz, 108MP camera, 5110mAh battery, 45W fast charging.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWtW5ttNaSg83dlx1wfnmQNPUEGuVVlz0Lf-AT_g9-7Q&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4u3p3SNCrtpaewHBIFk9rgz4Lk7rxcjEUMaLQROJsoQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ30Hbtg2RTE4duMr-SYwUcXnM1r9TrdeS55ZR2yTtacg&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTelDAQXqTidfTvS56fNa_47zctbAqbinERYwZ5m4RyXA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCS3pmgrBaZqvxiMkxF08ZRHGcdAPe-7UBj-CXbZDucQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfCuXUEGZImSWF2tnyNiN9NJ4ClA-1aKYMkMdOKlekPg&s=10"
+        ]
+    }, {
+        name: "REDMI NOTE 14",
+        theme: "blue",
+        deposit: "$40",
+        monthly: "$20",
+        total: "$280 total",
+        desc: "6.67-inch AMOLED 120Hz, 108MP triple camera, 5500mAh battery — everyday value king.",
+        images: [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOGLa5hAc-KYAhXXXnHGVDAiFN8GhIOhEZgBE79V3dsQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3oP3UL4UIkzdZTm3dTyApEd1W0qsL3wkZN-Ed9J_rPw&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhuPDZ2JYhA9xGtLvUgW706AYmKO6upTa0c-DJyAKxJg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGdpuoW-jZv29tTSCOaT2V-y5IZ0XBH7aTfcaw_nyWoQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw7MFXt5e1LU539OUBKQbLf3MhVYvELCTm58eUYX5eOA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRso5YixXfxpU-w6l5BhcZfhRacPZpjoRyHeVzd3W5TsA&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKbg8C0ndSx94U3upzR48ezr8UCBDq7jvZo47r-XAoCg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuKreLmTyIsDJwLMq-Zl4Z8lZlFJU6ZccVjZZp6W_FhQ&s=10"
+        ]
+    }];
+
+    // Build the phone cards — each with its own description + ADD TO CART button
+    (function buildPhones() {
+        var grid = document.getElementById("phoneGrid");
+        var html = "";
+
+        phones.forEach(function(p) {
+            var imgs = p.images.map(function(src) {
+                return '<img src="' + src + '" alt="' + p.name + '">';
+            }).join("");
+
+            html +=
+                '<div class="phone-card ' + p.theme + '-phone">' +
+                '<span class="stock-tag">✔ IN STOCK</span>' +
+                '<span class="months-tag">12 MONTHS</span>' +
+                '<div class="slider"><div class="slider-track">' + imgs + '</div></div>' +
+                '<div class="brand-label ' + p.theme + '-brand">' + p.name + '</div>' +
+                '<div class="phone-display">' + p.desc + '</div>' +
+                '<div class="price-tag">' +
+                '<div class="pt-row"><span>DEPOSIT</span><strong class="' + p.theme + '-strong">' + p.deposit + '</strong></div>' +
+                '<div class="pt-row"><span>MONTHLY</span><strong class="' + p.theme + '-strong">' + p.monthly + ' /month</strong></div>' +
+                '<div class="price-total">PAY EASY FOR 12 MONTHS • ' + p.total + '</div>' +
+                '</div>' +
+                '<button class="add-cart-btn" data-phone="' + p.name + '" onclick="addToCart(this)">🛒 ADD TO CART</button>' +
+                '</div>';
+        });
+
+        grid.innerHTML = html;
+    })();
+
+    // ==================================================
+    // CART
+    // ==================================================
+   // ==================================================
+// CART — stores full phone info, opens cart.html
+// ==================================================
+function getCart() {
+    return JSON.parse(localStorage.getItem("zpCart") || "[]");
+}
+
+function addToCart(btn) {
+    var name = btn.getAttribute("data-phone");
+    var p = phones.find(function(ph) { return ph.name === name; });
+    if (!p) return;
+
+    var cart = getCart();
+    cart.push({
+        name: p.name,
+        desc: p.desc,
+        deposit: p.deposit,
+        monthly: p.monthly,
+        total: p.total,
+        image: p.images[0]
+    });
+    localStorage.setItem("zpCart", JSON.stringify(cart));
+
+    // update counter
+    var fab = document.getElementById("cartFab");
+    var count = cart.length;
+    document.getElementById("cartCount").textContent = count;
+    fab.classList.remove("pop");
+    void fab.offsetWidth;
+    fab.classList.add("pop");
+
+    btn.textContent = "✔ ADDED";
+    btn.classList.add("added");
+    setTimeout(function() {
+        btn.textContent = "🛒 ADD TO CART";
+        btn.classList.remove("added");
+    }, 1200);
+}
+
+function viewCart() {
+    window.location.href = "cart.html";   // go to cart + delivery page
+}
+
+// show correct count on page load (cart persists between visits)
+(function initCartCount() {
+    var c = document.getElementById("cartCount");
+    if (c) c.textContent = getCart().length;
+})();
+
+    // ==================================================
+    // TOUCH SUPPORT — tap a card to start/stop the slide
+    // ==================================================
+    document.querySelectorAll('.phone-card').forEach(function(card) {
+        card.addEventListener('touchstart', function() {
+            card.classList.toggle('touched');
+        }, {
+            passive: true
+        });
+    });
+</script>
+
+</body>
+
+</html>
